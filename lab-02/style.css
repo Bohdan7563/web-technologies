@@ -109,3 +109,5 @@ footer p { margin: 4px 0; }
 .recipe-note { margin-top: 18px; color: var(--muted); font-style: italic; }
 .resume-image { margin: 24px 0; }
 .resume-link-image { width: 120px; height: 120px; object-fit: contain; }
+
+.resume-photo-large { display:block; width:min(100%, 420px); height:auto; margin:auto; }
