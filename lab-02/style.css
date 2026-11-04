@@ -103,3 +103,9 @@ footer p { margin: 4px 0; }
   .blog-layout { grid-template-columns: 1fr; }
   article, .panel { padding: 18px; }
 }
+
+.recipe { text-align: center; }
+.recipe h2 { color: #b42335; }
+.recipe-note { margin-top: 18px; color: var(--muted); font-style: italic; }
+.resume-image { margin: 24px 0; }
+.resume-link-image { width: 120px; height: 120px; object-fit: contain; }
