@@ -1,0 +1,43 @@
+:root {
+  --tree-columns: 12;
+  --tree-gap: 5px;
+  --tree-row-height: 48px;
+  --tree-color: #f3ca36;
+  --tree-text: #ffffff;
+  --tree-font-size: 1.7rem;
+}
+body { font-family: Arial, sans-serif; background: #f7f7f7; }
+.tree {
+  display: grid;
+  grid-template-columns: repeat(var(--tree-columns), minmax(0, 1fr));
+  grid-auto-rows: var(--tree-row-height);
+  gap: var(--tree-gap);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--tree-gap);
+  counter-reset: tree-block;
+}
+.tree__block {
+  display: flex;
+  grid-column: span var(--block-span, 1);
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  background: var(--tree-color);
+  color: var(--tree-text);
+  font-size: var(--tree-font-size);
+  counter-increment: tree-block;
+}
+.tree__block::before { content: counter(tree-block); }
+.tree__block:nth-child(1) { --block-span: 12; }
+.tree__block:nth-child(n+2):nth-child(-n+3) { --block-span: 6; }
+.tree__block:nth-child(n+4):nth-child(-n+6) { --block-span: 4; }
+.tree__block:nth-child(n+7):nth-child(-n+10) { --block-span: 3; }
+.tree__block:nth-child(n+11):nth-child(-n+16) { --block-span: 2; }
+.tree__block:nth-child(n+17):nth-child(-n+28) { --block-span: 1; }
+@media (max-width: 768px) {
+  :root { --tree-row-height: 42px; --tree-font-size: 1.35rem; }
+}
+@media (max-width: 576px) {
+  :root { --tree-row-height: 36px; --tree-font-size: 1rem; --tree-gap: 3px; }
+}

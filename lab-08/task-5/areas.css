@@ -1,0 +1,16 @@
+:root { --gap: 10px; --border: #263b50; --panel: #dceaf4; --accent: #b9d7e9; --padding: 16px; }
+body { min-height: 100vh; padding: var(--gap); font-family: Arial, sans-serif; background: #f5f7f9; }
+.layout { display: grid; grid-template-columns: 1fr; grid-template-areas: "header" "navigation" "main" "sidebar" "advertising" "footer"; gap: var(--gap); max-width: 1100px; margin: 0 auto; }
+.layout > * { padding: var(--padding); border: 2px solid var(--border); background: var(--panel); }
+.header { grid-area: header; background: var(--accent); }
+.navigation { grid-area: navigation; }
+.main { grid-area: main; min-height: 260px; }
+.sidebar { grid-area: sidebar; }
+.advertising { grid-area: advertising; }
+.footer { grid-area: footer; background: var(--accent); }
+@media (min-width: 576px) {
+  .layout { grid-template-columns: 1fr 2fr; grid-template-areas: "header header" "navigation navigation" "sidebar main" "advertising main" "footer footer"; }
+}
+@media (min-width: 768px) {
+  .layout { grid-template-columns: 180px minmax(0, 1fr) 180px; grid-template-areas: "header header header" "navigation navigation navigation" "sidebar main advertising" "footer footer footer"; }
+}
